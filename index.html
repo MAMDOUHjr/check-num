@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>task</title>
+</head>
+
+<style>
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px 0;
+    width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    font-size: 24px;
+}
+
+</style>
+<body style="font-size: 50px;">
+
+    <input id="input"type="text">
+    <button onclick="x()">submit</button>
+    <button type="reset" id="clearButton">clear</button>
+    <br>
+    <p id="task">
+
+    </p>
+ 
+    <script>
+    document.getElementById('clearButton').addEventListener('click', function() {
+    document.getElementById('input').value = '';
+    document.getElementById('task').innerHTML = '';
+});
+   function x(){
+
+    const msg = document.getElementById("task");
+    msg.innerHTML = " ";
+
+    let value = document.getElementById("input").value;
+    try{
+
+        if(value == "")throw "Empty";
+        if(isNaN(value))throw "Not a Number ";
+        value = Number(value);
+        if(value > 5 )throw "Above 5 ";
+        if(value < 5 )throw "Below 5";
+        if(value == 5 )throw "Equal 5 ";
+        
+    }catch(err){
+        msg.innerHTML="The Input " + err ;
+    }
+
+ 
+
+
+
+   } 
+
+
+</script>
+</body>
+</html>
